@@ -11,5 +11,18 @@
     "16": "images/halalPic.png",
     "48": "images/halalPic.png",
     "128": "images/halalPic.png"
-  }
+  },
+  "content_scripts": [
+    {
+      "js": ["scripts/content.js"],
+      "matches": ["<all_urls>"],
+      "run_at": "document_idle"
+    }
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "permissions": [
+    "scripting"
+  ]
 }
