@@ -5,24 +5,20 @@
   "manifest_version": 3,
   "action": {
     "default_popup": "main.html",
-    "default_icon": "images/halalPic.png"
+    "default_icon": "images/halalPic.png",
+    "default_title": "Frame Grabber"
   },
   "icons": {
     "16": "images/halalPic.png",
     "48": "images/halalPic.png",
     "128": "images/halalPic.png"
   },
+  "permissions": ["scripting", "activeTab"],
   "content_scripts": [
     {
+      "matches": ["*://www.youtube.com/watch*"],
       "js": ["scripts/content.js"],
-      "matches": ["<all_urls>"],
-      "run_at": "document_idle"
+      "run_at": "document_start"
     }
-  ],
-  "host_permissions": [
-    "<all_urls>"
-  ],
-  "permissions": [
-    "scripting"
   ]
 }
