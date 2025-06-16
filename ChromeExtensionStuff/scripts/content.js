@@ -1,9 +1,9 @@
 (async function () {
   // Wait a bit in case the video hasn't loaded
   console.log("ABOUT TO WAIT")
-  await new Promise(res => setTimeout(res, 2000));
+  await new Promise(res => setTimeout(res, 4000));
   let video = null
-for(let i = 0; i<10; i++){
+for(let i = 0; i<30; i++){
     console.log("Looking for video")
 video = document.querySelector('video');
 
@@ -17,9 +17,12 @@ else{
     break;
 }
 }
-title = document.querySelector('.style-scope ytd-watch-metadata');
+let title = document.querySelector('.style-scope ytd-watch-metadata');
 
-for(let i = 0; i<10; i++){
+document.addEventListener('keydown',  async function(event) {
+   if (event.key === 'h') {
+    console.log('Enter key was pressed!');
+  
   const canvas = document.createElement('canvas');
   canvas.width = video.videoWidth;
   canvas.height = video.videoHeight;
@@ -47,7 +50,6 @@ for(let i = 0; i<10; i++){
   } catch (err) {
     console.error("Error generating blob:", err);
   }
-  await new Promise(res => setTimeout(res, 2000));
-}
+}})
 }
 )();
